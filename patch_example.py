@@ -19,3 +19,15 @@ with patch('__main__.Class') as MockClass:
 with patch('__main__.Class.method') as mock_method:
 
     mock_method.return_value = 'foo'
+    
+
+@patch('__main__.Class.method')
+def my_function(mock_method):
+    mock_method.return_value = 'foo'
+    
+
+mock_class = MagicMock()
+mock_class.method_one.return_value = 1
+mock_class.method_two.side_effect = KeyError('key error exceptoin') # Throw exception when method is called.
+
+
